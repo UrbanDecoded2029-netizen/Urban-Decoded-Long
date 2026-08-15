@@ -13,14 +13,14 @@ pexels_key = os.environ.get('PEXELS_API_KEY')
 chat_id = os.environ.get('CHAT_ID')
 telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
 
-# 👇 USA Channel Name (Updated to Short Form for Safety) 👇
-channel_name = "DSCH®" 
+# 👇 USA Channel Name (Updated for Urban Decoded) 👇
+channel_name = "URBAN®" 
 
 print(f"DEBUG: Processing {len(scenes_data)} scenes async...")
 
 # --- SMART DYNAMIC FALLBACK KEYWORDS ---
 # GitHub Actions se jo bhi fallback theme aayegi, yeh usey list mein badal dega.
-fallback_env = os.environ.get('FALLBACK_KEYWORDS', 'deep space, galaxy, universe, nebula, black hole, creepy space, cosmic horror')
+fallback_env = os.environ.get('FALLBACK_KEYWORDS', 'city night, time lapse traffic, abstract architecture, modern building, neon street, subway crowd')
 FALLBACK_KEYWORDS = [kw.strip() for kw in fallback_env.split(',')]
 
 TEMP_DIR = "/dev/shm" if os.path.exists("/dev/shm") else os.getcwd()
@@ -71,7 +71,7 @@ async def process_scene(session, i, scene):
         tts_success = False
         for attempt in range(3):
             try:
-                # 👇 USA English Voice for storytelling 👇
+                # 👇 USA English Voice for documentary storytelling 👇
                 communicate = edge_tts.Communicate(text_line, "en-US-ChristopherNeural", rate="+10%")
                 await asyncio.wait_for(communicate.save(raw_mp3), timeout=15.0)
                 tts_success = True
@@ -217,7 +217,7 @@ async def main_pipeline():
         tag_name = f"vid-{run_id}"
         
         # 👇 Repo name updated as per screenshot and workflow 👇
-        repo_name = os.environ.get('GITHUB_REPOSITORY', "deepspaceusa-cyber/Deep-Space-USA-Long") 
+        repo_name = os.environ.get('GITHUB_REPOSITORY', "UrbanDecoded2029-netizen/Urban-Decoded-Long") 
         
         try:
             cmd = ['gh', 'release', 'create', tag_name, final_video, '--repo', repo_name, '--notes', 'Automated Video Render']
