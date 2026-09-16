@@ -13,14 +13,14 @@ pexels_key = os.environ.get('PEXELS_API_KEY')
 chat_id = os.environ.get('CHAT_ID')
 telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
 
-# 👇 USA Channel Name (Updated for Urban Decoded) 👇
-channel_name = "URBAN®" 
+# 👇 USA Stoic Channel Name Watermark 👇
+channel_name = "SMSet®" 
 
 print(f"DEBUG: Processing {len(scenes_data)} scenes async...")
 
-# --- SMART DYNAMIC FALLBACK KEYWORDS ---
+# --- SMART DYNAMIC FALLBACK KEYWORDS (UPDATED FOR STOICISM/PSYCHOLOGY) ---
 # GitHub Actions se jo bhi fallback theme aayegi, yeh usey list mein badal dega.
-fallback_env = os.environ.get('FALLBACK_KEYWORDS', 'city night, time lapse traffic, abstract architecture, modern building, neon street, subway crowd')
+fallback_env = os.environ.get('FALLBACK_KEYWORDS', 'dark nature, slow motion rain, epic landscape, solitary figure, classical statue, misty forest, cinematic shadows')
 FALLBACK_KEYWORDS = [kw.strip() for kw in fallback_env.split(',')]
 
 TEMP_DIR = "/dev/shm" if os.path.exists("/dev/shm") else os.getcwd()
